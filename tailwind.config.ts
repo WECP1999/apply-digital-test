@@ -29,6 +29,7 @@ const config: Config = {
           950: '#242528',
         },
         primary: {
+          200: '#EEEEEE',
           300: '#8F8F8F',
           400: '#585660',
           500: '#3B3B3B',
