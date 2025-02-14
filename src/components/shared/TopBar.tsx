@@ -4,7 +4,7 @@ import { RiShoppingCart2Line } from '@remixicon/react';
 
 const TopBar = () => {
   return (
-    <nav className="py-5 px-6 max-2xl:px-0 w-full bg-primary-200">
+    <nav className="py-5 px-6 2xl:px-0 w-full bg-primary-200">
       <div className="max-w-screen-2xl w-full flex flex-row justify-between items-center mx-auto">
         <Link href="/">
           <Button
