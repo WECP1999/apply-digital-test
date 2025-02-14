@@ -1,6 +1,7 @@
 'use client';
 
-import OrderSummary from '@/components/orderSummary/OrderSummary';
+import CartProduct from '@/components/cart/cartProducts/CartProducts';
+import OrderSummary from '@/components/cart/orderSummary/OrderSummary';
 import Button from '@/components/shared/Button';
 import cartStore from '@/store/cart';
 import { RiArrowLeftLine } from '@remixicon/react';
@@ -10,7 +11,7 @@ const ShoppingCart = () => {
   const games = cartStore((state) => state.games);
 
   return (
-    <section className="flex min-h-screen flex-col px-24 font-bold text-4xl text-blue-600 max-w-screen-2xl m-auto w-full box-border">
+    <section className="flex min-h-screen flex-col px-6 sm:px-24 font-bold max-w-screen-2xl m-auto w-full box-border pb-12">
       <section className="flex flex-col gap-12 py-12">
         <div className="py-6">
           <Link
@@ -30,8 +31,16 @@ const ShoppingCart = () => {
           </span>
         </div>
       </section>
-      <section className="flex flex-col justify-between md:flex-row">
-        <div className=""></div>
+      <section className="flex flex-col justify-between lg:flex-row">
+        <div className="flex flex-col w-full max-w-[678px]">
+          {games.map((game, index) => (
+            <CartProduct
+              game={game}
+              lastProduct={index === games.length - 1}
+              key={game.id}
+            />
+          ))}
+        </div>
         <OrderSummary games={games} />
       </section>
     </section>
