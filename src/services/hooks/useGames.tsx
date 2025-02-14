@@ -9,7 +9,7 @@ const useGame = (page = 1, genre?: string) => {
   const setGenres = gamesStore((state) => state.setGenres);
 
   const { data, isSuccess, ...rest } = useQuery({
-    queryKey: [GAMES, genre],
+    queryKey: [GAMES, page, genre],
     queryFn: async () => await getGames(page, _genre),
     refetchOnWindowFocus: false,
   });

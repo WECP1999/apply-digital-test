@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 const Home = () => {
   const [selectedGenre, setSelectedGenre] = useState<undefined | string>();
-  const [pageIndex, setPageIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(1);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -50,15 +50,15 @@ const Home = () => {
   }, [searchParams]);
 
   return (
-    <section className="flex min-h-screen flex-col px-24 font-bold text-4xl text-blue-600 max-w-screen-2xl m-auto w-full box-border">
+    <section className="flex min-h-screen flex-col px-6 sm:px-24 font-bold max-w-screen-2xl m-auto w-full box-border">
       <section className="flex flex-col gap-12 py-12">
         <span className="font-bold text-4xl text-primary-500">Top Sellers</span>
-        <div className="flex flex-row gap-6 items-center justify-end">
+        <div className="flex flex-row gap-6 items-center justify-start sm:justify-end">
           <span className="font-bold text-xl text-primary-500">Genre</span>
           <div className="h-5 w-px border border-primary-500" />
           {genres.length > 0 && (
             <select
-              className="text-xl text-primary-500 bg-transparent outline-0 border-0 p-4"
+              className="text-xl text-primary-500 bg-transparent outline-0 border-0 py-4"
               value={selectedGenre}
               onChange={(val) => onFilterChange(val.currentTarget.value)}
             >
@@ -81,7 +81,7 @@ const Home = () => {
         </div>
       </section>
       <section className="flex flex-col gap-12 w-full py-12">
-        <section className="flex flex-row w-full gap-12 flex-wrap justify-start">
+        <section className="flex flex-row w-full gap-12 flex-wrap lg:justify-start justify-center">
           {data?.games.map((game) => (
             <CardProduct
               game={game}
@@ -95,8 +95,9 @@ const Home = () => {
         />
         {data && data?.currentPage < data?.totalPages && (
           <Button
-            className="uppercase !text-base py-5"
+            className="uppercase !text-base py-5 w-full md:w-fit"
             isLoading={isLoading}
+            onClick={() => setPageIndex((page) => page + 1)}
           >
             see more
           </Button>
