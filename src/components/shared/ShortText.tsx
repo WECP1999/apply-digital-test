@@ -1,11 +1,13 @@
+import classNames from 'classnames';
 import { useState } from 'react';
 
 interface ShortTextProps {
   text: string;
   maxLength: number;
+  className?: string;
 }
 
-const ShortText = ({ text, maxLength }: ShortTextProps) => {
+const ShortText = ({ text, maxLength, className }: ShortTextProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const isTruncated = text.length > maxLength;
@@ -14,6 +16,7 @@ const ShortText = ({ text, maxLength }: ShortTextProps) => {
   return (
     <div className="relative inline-block">
       <span
+        className={className}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
