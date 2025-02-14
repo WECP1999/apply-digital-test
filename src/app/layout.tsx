@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import 'remixicon/fonts/remixicon.css';
 import ReactQueryProvider from '@/config/providers/QueryProvider';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryProvider>
-      <html lang="en">
-        <body className="font-inter m-0 min-h-screen w-full scroll-smooth p-0">
-          {children}
-        </body>
-      </html>
+      <Suspense>
+        <html lang="en">
+          <body className="font-inter m-0 min-h-screen w-full scroll-smooth p-0">
+            {children}
+          </body>
+        </html>
+      </Suspense>
     </ReactQueryProvider>
   );
 }
