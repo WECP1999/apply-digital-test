@@ -1,6 +1,6 @@
 import { Game } from '@/utils/endpoint';
-import Button from '../shared/Button';
-import Card from '../card/Card';
+import Button from '../../shared/Button';
+import Card from '../../card/Card';
 import { useMemo } from 'react';
 import parseToCurrency from '@/utils/functions/parseToCurrency';
 
