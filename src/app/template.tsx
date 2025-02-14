@@ -1,3 +1,4 @@
+import Footer from '@/components/shared/Footer';
 import TopBar from '@/components/shared/TopBar';
 import React from 'react';
 
@@ -10,6 +11,7 @@ const Template = ({ children }: TemplateProps) => {
     <main className="relative flex h-full min-h-screen w-full flex-col justify-center bg-white">
       <TopBar />
       {children}
+      <Footer />
     </main>
   );
 };
