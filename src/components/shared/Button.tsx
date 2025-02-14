@@ -6,7 +6,8 @@ import DefaultSpinner from './DefaultSpinner';
 const variantStyles = {
   primary:
     'bg-primary-400 hover:bg-primary-300 focus:bg-primary-500 text-white',
-  text: 'border-none bg-transparent text-primary-400 hover:text-primary-500 focus:text-primary-500',
+  text: 'border border-primary-500 bg-transparent text-primary-500 hover:text-primary-400 focus:text-primary-400',
+  danger: 'bg-alert-error-500 hover:bg-alert-error-600 focus:bg-alert-error-700 text-white',
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
